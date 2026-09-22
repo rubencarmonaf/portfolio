@@ -73,11 +73,9 @@
   --font-body: var(--font-body);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
+/* Lenis owns smooth scrolling when motion is allowed (see LenisSetup); native
+   scroll-behavior would double up with it on anchor jumps. When motion is
+   reduced, Lenis is disabled and we want an instant native jump anyway. */
 
 html {
   color-scheme: dark;

@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { GsapSetup } from "@/components/GsapSetup";
+import { LenisSetup } from "@/components/LenisSetup";
 import { ThemeScript } from "@/components/ThemeScript";
 import "../globals.css";
 
@@ -58,6 +59,7 @@ export default async function LocaleLayout(props: LayoutProps<"/[locale]">) {
       <body className="min-h-dvh bg-ink text-paper antialiased">
         <div className="grain" aria-hidden="true" />
         <GsapSetup />
+        <LenisSetup />
         <NextIntlClientProvider>{props.children}</NextIntlClientProvider>
       </body>
     </html>
