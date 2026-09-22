@@ -9,9 +9,18 @@ type ScrollRevealProps = {
   as?: "div" | "ul";
   stagger?: number;
   y?: number;
+  /** Optional starting tilt in degrees; settles to 0 as it reveals. */
+  rotate?: number;
 };
 
-export function ScrollReveal({ children, className, as = "div", stagger = 0.08, y = 24 }: ScrollRevealProps) {
+export function ScrollReveal({
+  children,
+  className,
+  as = "div",
+  stagger = 0.08,
+  y = 24,
+  rotate = 0,
+}: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement & HTMLUListElement>(null);
 
   useEffect(() => {
@@ -22,24 +31,27 @@ export function ScrollReveal({ children, className, as = "div", stagger = 0.08, 
     if (items.length === 0) return;
 
     if (prefersReducedMotion()) {
-      gsap.set(items, { opacity: 1, y: 0 });
+      gsap.set(items, { opacity: 1, y: 0, rotate: 0 });
       return;
     }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
         items,
-        { opacity: 0, y },
+        { opacity: 0, y, rotate },
         {
           opacity: 1,
           y: 0,
+          rotate: 0,
           duration: 0.7,
           ease: "power3.out",
           stagger,
           scrollTrigger: {
             trigger: root,
             start: "top 82%",
-            toggleActions: "play none none none",
+            // Replays every time the section crosses into view, scrolling
+            // either up or down, instead of only firing once.
+            toggleActions: "play reverse play reverse",
           },
         },
       );
@@ -51,7 +63,7 @@ export function ScrollReveal({ children, className, as = "div", stagger = 0.08, 
         if (trigger.trigger === root) trigger.kill();
       });
     };
-  }, [stagger, y]);
+  }, [stagger, y, rotate]);
 
   const Tag = as as "div";
   return (

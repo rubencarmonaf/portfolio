@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { experience } from "@/lib/data";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { HeadingReveal } from "@/components/HeadingReveal";
 
 export async function Experience() {
   const t = await getTranslations("experience");
@@ -8,11 +9,11 @@ export async function Experience() {
   return (
     <section id="experiencia" className="border-t border-line-soft py-24">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal className="flex flex-col gap-2" stagger={0.08} y={16}>
+        <HeadingReveal>
           <h2 className="font-display text-3xl font-bold tracking-tight text-paper md:text-4xl">
             {t("title")}
           </h2>
-        </ScrollReveal>
+        </HeadingReveal>
 
         <ScrollReveal className="mt-12 flex flex-col gap-10" stagger={0.1} y={20}>
           {experience.map((job) => {

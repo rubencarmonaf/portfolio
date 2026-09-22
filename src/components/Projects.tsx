@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { ArrowUpRight, GithubLogo } from "@phosphor-icons/react/ssr";
 import { projects } from "@/lib/data";
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { StickyProjectStack } from "@/components/StickyProjectStack";
+import { HeadingReveal } from "@/components/HeadingReveal";
 
 export async function Projects() {
   const t = await getTranslations("projects");
@@ -12,11 +12,11 @@ export async function Projects() {
   return (
     <section id="proyecto" className="border-t border-line-soft py-24">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal className="flex flex-col gap-2" stagger={0.08} y={16}>
+        <HeadingReveal>
           <h2 className="font-display text-3xl font-bold tracking-tight text-paper md:text-4xl">
             {t("title")}
           </h2>
-        </ScrollReveal>
+        </HeadingReveal>
       </div>
 
       <StickyProjectStack>

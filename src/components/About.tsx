@@ -39,7 +39,7 @@ export async function About() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.08}>
+        <ScrollReveal className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.08} rotate={-2}>
           {skillGroups.map((group) => (
             <div
               key={group.key}

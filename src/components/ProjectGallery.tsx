@@ -36,7 +36,7 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
           scrollTrigger: {
             trigger: root,
             start: "top 78%",
-            toggleActions: "play none none none",
+            toggleActions: "play reverse play reverse",
           },
         },
       );
@@ -50,7 +50,7 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
           trigger: root,
           start: "top bottom",
           end: "bottom top",
-          scrub: 0.6,
+          scrub: 1.2,
         },
       });
     }, root);
