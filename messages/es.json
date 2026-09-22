@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "Rubén Carmona Fortuño - Full Stack Developer",
+    "description": "Full Stack Developer especializado en Node.js y Angular. Desde Vila-real, Comunidad Valenciana, en remoto."
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "project": "Proyecto",
+    "contact": "Contacto",
+    "cv": "CV",
+    "downloadCv": "Descargar CV"
+  },
+  "hero": {
+    "country": "España",
+    "availability": "Disponible en remoto",
+    "headline1": "Backend en Node.js.",
+    "headline2": "Frontend en Angular.",
+    "subtitle": "Full Stack Developer: APIs, interfaces y despliegue. Llevo productos de extremo a extremo, con foco en código limpio y fiable.",
+    "ctaProject": "Ver proyecto",
+    "ctaCv": "Descargar CV"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "p1": "Desarrollador full stack con base en Vila-real, trabajando en remoto desde 2018. He llevado productos desde el requisito de negocio hasta producción: backend en Node.js, interfaces mantenibles en Angular y, últimamente, también en React.",
+    "p2": "Lo que más disfruto es convertir requisitos poco claros en productos que la gente usa, con foco en código limpio y decisiones de arquitectura que aguantan el tiempo.",
+    "cvLink": "Ver currículum completo"
+  },
+  "skills": {
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "data": "Datos",
+    "cloud": "Cloud & DevOps"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "current": "Actual",
+    "items": {
+      "revenueLabs": {
+        "place": "En remoto",
+        "period": "Mar 2023 - Ago 2026",
+        "summary": "Plataforma de reservas online multi-tenant (white-label) usada por más de 50 clientes para vender paquetes de entradas, hotel y tren desde sus propios dominios.",
+        "bullets": [
+          "APIs de reserva y lógica de precios/descuentos con reglas por edad, altura y tipo de tarifa.",
+          "Frontend Angular 19 con SSR e hidratación completa sobre una única base de código para decenas de marcas.",
+          "Integración end-to-end de la pasarela de pago Redsys, del checkout a la confirmación.",
+          "CI/CD con GitHub Actions e infraestructura en GCP (Cloud Run, Cloud SQL, Redis) con Terraform y Docker."
+        ]
+      },
+      "nttData": {
+        "place": "Castellón · En remoto",
+        "period": "Ene 2023 - Mar 2023",
+        "summary": "Desarrollo full stack en proyectos de cliente: backend en PHP/Symfony y frontend en AngularJS."
+      },
+      "anaimo": {
+        "place": "Valencia",
+        "period": "Abr 2022 - Ene 2023",
+        "summary": "Desarrollo de software de inteligencia artificial, aplicando machine learning a casos de uso reales."
+      },
+      "arenaStack": {
+        "place": "Vila-real, Castellón",
+        "period": "Abr 2018 - Ago 2019",
+        "summary": "Responsable técnico y desarrollo full stack, participando en decisiones de arquitectura y producto."
+      }
+    }
+  },
+  "project": {
+    "tagline": "Juego de palabras multijugador en tiempo real, con ranking ELO",
+    "description": "Juego de palabras online por turnos: cada partida impone un prefijo y los jugadores compiten por encadenar palabras válidas antes de que se acabe el tiempo. Incluye modo versus en tiempo real, reto diario, práctica en solitario y salas privadas por enlace.",
+    "bullets": [
+      "Tiempo real con Socket.IO: turnos, temporizadores y validación de palabras sincronizados entre clientes.",
+      "Sistema de cuentas con JWT y bcrypt, y un ranking ELO que sube o baja según el resultado de cada partida.",
+      "Backend Express + MongoDB, frontend Angular; rate limiting y cabeceras de seguridad con Helmet."
+    ],
+    "openCta": "Abrir WordWars",
+    "codeCta": "Código"
+  },
+  "contact": {
+    "title": "¿Hablamos?",
+    "subtitle": "Abierto a nuevas oportunidades en remoto. Escríbeme por email o LinkedIn y te respondo en menos de 24 horas.",
+    "cta": "Escríbeme",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "theme": {
+    "toggle": "Cambiar tema"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "Rubén Carmona Fortuño - Full Stack Developer",
+    "description": "Full Stack Developer specialized in Node.js and Angular. Based in Vila-real, Comunidad Valenciana, working remotely."
+  },
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "project": "Project",
+    "contact": "Contact",
+    "cv": "CV",
+    "downloadCv": "Download CV"
+  },
+  "hero": {
+    "country": "Spain",
+    "availability": "Available remotely",
+    "headline1": "Backend in Node.js.",
+    "headline2": "Frontend in Angular.",
+    "subtitle": "Full Stack Developer: APIs, interfaces and deployment. I take products end to end, with a focus on clean, reliable code.",
+    "ctaProject": "View project",
+    "ctaCv": "Download CV"
+  },
+  "about": {
+    "title": "About me",
+    "p1": "Full stack developer based in Vila-real, working remotely since 2018. I've taken products from business requirement to production: backend in Node.js, maintainable interfaces in Angular and, more recently, in React too.",
+    "p2": "What I enjoy most is turning unclear requirements into products people actually use, with a focus on clean code and architecture decisions that hold up over time.",
+    "cvLink": "View full resume"
+  },
+  "skills": {
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "data": "Data",
+    "cloud": "Cloud & DevOps"
+  },
+  "experience": {
+    "title": "Experience",
+    "current": "Current",
+    "items": {
+      "revenueLabs": {
+        "place": "Remote",
+        "period": "Mar 2023 - Aug 2026",
+        "summary": "Multi-tenant (white-label) online booking platform used by more than 50 clients to sell ticket, hotel and train packages from their own domains.",
+        "bullets": [
+          "Booking APIs and pricing/discount logic with rules by age, height and fare type.",
+          "Angular 19 frontend with SSR and full hydration on a single codebase serving dozens of brands.",
+          "End-to-end integration of the Redsys payment gateway, from checkout to transaction confirmation.",
+          "CI/CD with GitHub Actions and infrastructure on GCP (Cloud Run, Cloud SQL, Redis) with Terraform and Docker."
+        ]
+      },
+      "nttData": {
+        "place": "Castellón · Remote",
+        "period": "Jan 2023 - Mar 2023",
+        "summary": "Full stack development on client projects: backend in PHP/Symfony and frontend in AngularJS."
+      },
+      "anaimo": {
+        "place": "Valencia",
+        "period": "Apr 2022 - Jan 2023",
+        "summary": "AI software development, applying machine learning to real use cases."
+      },
+      "arenaStack": {
+        "place": "Vila-real, Castellón",
+        "period": "Apr 2018 - Aug 2019",
+        "summary": "Technical lead and full stack development, taking part in architecture and product decisions."
+      }
+    }
+  },
+  "project": {
+    "tagline": "Real-time multiplayer word game with an ELO ranking",
+    "description": "Turn-based online word game: each match sets a prefix and players race to chain valid words before time runs out. Includes a real-time versus mode, a daily challenge, solo practice and private link-based lobbies.",
+    "bullets": [
+      "Real time with Socket.IO: turns, timers and word validation kept in sync across clients.",
+      "Account system with JWT and bcrypt, plus an ELO ranking that moves up or down with each match's result.",
+      "Express + MongoDB backend, Angular frontend; rate limiting and security headers with Helmet."
+    ],
+    "openCta": "Open WordWars",
+    "codeCta": "Code"
+  },
+  "contact": {
+    "title": "Let's talk",
+    "subtitle": "Open to new remote opportunities. Email me or reach out on LinkedIn and I'll reply within 24 hours.",
+    "cta": "Email me",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  }
+}

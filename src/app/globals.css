@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark theme (default) */
+  --color-ink: #0a0a0b;
+  --color-ink-raised: #131315;
+  --color-surface: #17171a;
+  --color-surface-hover: #1e1e22;
+  --color-line: #28282d;
+  --color-line-soft: #1c1c20;
+
+  --color-paper: #f4f2ec;
+  --color-paper-dim: #a8a6a0;
+  --color-paper-faint: #6c6a66;
+
+  --color-signal: #e2793f;
+  --color-signal-soft: #e2793f26;
+  --color-signal-dim: #b85f2f;
+  /* Text-on-page use of the accent needs its own token: #e2793f fails
+     WCAG AA as text on the light theme's white surfaces, so light mode
+     overrides this to a deeper shade while buttons keep --color-signal. */
+  --color-signal-ink: var(--color-signal);
+
+  --font-display: var(--font-jetbrains-mono);
+  --font-body: var(--font-space-grotesk);
+}
+
+:root[data-theme="light"] {
+  --color-ink: #f7f5f0;
+  --color-ink-raised: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1eee6;
+  --color-line: #e3dfd4;
+  --color-line-soft: #ebe7de;
+
+  --color-paper: #1c1b18;
+  --color-paper-dim: #57534c;
+  --color-paper-faint: #857f74;
+
+  --color-signal: #e2793f;
+  --color-signal-soft: #e2793f1f;
+  --color-signal-dim: #b85f2f;
+  --color-signal-ink: #a8541f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--color-ink);
+  --color-ink-raised: var(--color-ink-raised);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-line: var(--color-line);
+  --color-line-soft: var(--color-line-soft);
+
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-paper-faint: var(--color-paper-faint);
+
+  --color-signal: var(--color-signal);
+  --color-signal-soft: var(--color-signal-soft);
+  --color-signal-dim: var(--color-signal-dim);
+  --color-signal-ink: var(--color-signal-ink);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
+html {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+.hero-grid {
+  opacity: 0.16;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-grid {
+    animation: hero-grid-drift 60s linear infinite;
+  }
+}
+
+@keyframes hero-grid-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-34px, -34px, 0);
+  }
+}
+
+/* Grain overlay, fixed and pointer-events-none per performance guidance */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
