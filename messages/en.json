@@ -14,8 +14,8 @@
   "hero": {
     "country": "Spain",
     "availability": "Available remotely",
-    "headline1": "Backend in Node.js.",
-    "headline2": "Frontend in Angular.",
+    "headline1": "Backend: Node.js.",
+    "headline2": "Frontend: TypeScript.",
     "subtitle": "Full Stack Developer: APIs, interfaces and deployment. I take products end to end, with a focus on clean, reliable code.",
     "ctaProject": "View project",
     "ctaCv": "Download CV"
