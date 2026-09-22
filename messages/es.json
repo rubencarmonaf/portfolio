@@ -6,7 +6,7 @@
   "nav": {
     "about": "Sobre mí",
     "experience": "Experiencia",
-    "project": "Proyecto",
+    "project": "Proyectos",
     "contact": "Contacto",
     "cv": "CV",
     "downloadCv": "Descargar CV"
@@ -17,7 +17,7 @@
     "headline1": "Backend: Node.js.",
     "headline2": "Frontend: TypeScript.",
     "subtitle": "Full Stack Developer: APIs, interfaces y despliegue. Llevo productos de extremo a extremo, con foco en código limpio y fiable.",
-    "ctaProject": "Ver proyecto",
+    "ctaProject": "Ver proyectos",
     "ctaCv": "Descargar CV"
   },
   "about": {
@@ -64,17 +64,21 @@
       }
     }
   },
-  "project": {
-    "label": "Proyecto",
-    "tagline": "Juego de palabras multijugador en tiempo real, con ranking ELO",
-    "description": "Juego de palabras online por turnos: cada partida impone un prefijo y los jugadores compiten por encadenar palabras válidas antes de que se acabe el tiempo. Incluye modo versus en tiempo real, reto diario, práctica en solitario y salas privadas por enlace.",
-    "bullets": [
-      "Tiempo real con Socket.IO: turnos, temporizadores y validación de palabras sincronizados entre clientes.",
-      "Sistema de cuentas con JWT y bcrypt, y un ranking ELO que sube o baja según el resultado de cada partida.",
-      "Backend Express + MongoDB, frontend Angular; rate limiting y cabeceras de seguridad con Helmet."
-    ],
-    "openCta": "Abrir WordWars",
-    "codeCta": "Código"
+  "projects": {
+    "title": "Proyectos",
+    "openCta": "Ver en vivo",
+    "codeCta": "Código",
+    "items": {
+      "wordwars": {
+        "tagline": "Juego de palabras multijugador en tiempo real, con ranking ELO",
+        "description": "Juego de palabras online por turnos: cada partida impone un prefijo y los jugadores compiten por encadenar palabras válidas antes de que se acabe el tiempo. Incluye modo versus en tiempo real, reto diario, práctica en solitario y salas privadas por enlace.",
+        "bullets": [
+          "Tiempo real con Socket.IO: turnos, temporizadores y validación de palabras sincronizados entre clientes.",
+          "Sistema de cuentas con JWT y bcrypt, y un ranking ELO que sube o baja según el resultado de cada partida.",
+          "Backend Express + MongoDB, frontend Angular; rate limiting y cabeceras de seguridad con Helmet."
+        ]
+      }
+    }
   },
   "contact": {
     "title": "¿Hablamos?",

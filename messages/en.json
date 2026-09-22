@@ -6,7 +6,7 @@
   "nav": {
     "about": "About",
     "experience": "Experience",
-    "project": "Project",
+    "project": "Projects",
     "contact": "Contact",
     "cv": "CV",
     "downloadCv": "Download CV"
@@ -17,7 +17,7 @@
     "headline1": "Backend: Node.js.",
     "headline2": "Frontend: TypeScript.",
     "subtitle": "Full Stack Developer: APIs, interfaces and deployment. I take products end to end, with a focus on clean, reliable code.",
-    "ctaProject": "View project",
+    "ctaProject": "View projects",
     "ctaCv": "Download CV"
   },
   "about": {
@@ -64,17 +64,21 @@
       }
     }
   },
-  "project": {
-    "label": "Project",
-    "tagline": "Real-time multiplayer word game with an ELO ranking",
-    "description": "Turn-based online word game: each match sets a prefix and players race to chain valid words before time runs out. Includes a real-time versus mode, a daily challenge, solo practice and private link-based lobbies.",
-    "bullets": [
-      "Real time with Socket.IO: turns, timers and word validation kept in sync across clients.",
-      "Account system with JWT and bcrypt, plus an ELO ranking that moves up or down with each match's result.",
-      "Express + MongoDB backend, Angular frontend; rate limiting and security headers with Helmet."
-    ],
-    "openCta": "Open WordWars",
-    "codeCta": "Code"
+  "projects": {
+    "title": "Projects",
+    "openCta": "View live",
+    "codeCta": "Code",
+    "items": {
+      "wordwars": {
+        "tagline": "Real-time multiplayer word game with an ELO ranking",
+        "description": "Turn-based online word game: each match sets a prefix and players race to chain valid words before time runs out. Includes a real-time versus mode, a daily challenge, solo practice and private link-based lobbies.",
+        "bullets": [
+          "Real time with Socket.IO: turns, timers and word validation kept in sync across clients.",
+          "Account system with JWT and bcrypt, plus an ELO ranking that moves up or down with each match's result.",
+          "Express + MongoDB backend, Angular frontend; rate limiting and security headers with Helmet."
+        ]
+      }
+    }
   },
   "contact": {
     "title": "Let's talk",

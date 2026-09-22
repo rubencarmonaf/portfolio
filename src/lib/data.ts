@@ -80,17 +80,31 @@ export const experience: ExperienceEntry[] = [
   },
 ];
 
-export const project = {
-  name: "WordWars",
-  stack: ["Node.js", "Express", "Socket.IO", "MongoDB", "Angular", "TypeScript", "JWT"],
-  liveHref: "https://wordwars-ab0f.onrender.com/",
-  repoHref: "https://github.com/rubencarmonaf/words-game",
-  images: [
-    { src: "/projects/wordwars/menu.jpg", alt: "WordWars main menu with the game modes" },
-    { src: "/projects/wordwars/setup.jpg", alt: "Solo practice mode setup screen" },
-    { src: "/projects/wordwars/gameplay.jpg", alt: "A match in progress with the PRE prefix active" },
-  ],
+export type ProjectEntry = {
+  id: string;
+  name: string;
+  stack: string[];
+  liveHref: string;
+  repoHref: string;
+  images: { src: string; alt: string }[];
 };
+
+// Add future projects here; each needs a matching "items.<id>" block in
+// messages/es.json and messages/en.json under the "projects" namespace.
+export const projects: ProjectEntry[] = [
+  {
+    id: "wordwars",
+    name: "WordWars",
+    stack: ["Node.js", "Express", "Socket.IO", "MongoDB", "Angular", "TypeScript", "JWT"],
+    liveHref: "https://wordwars-ab0f.onrender.com/",
+    repoHref: "https://github.com/rubencarmonaf/words-game",
+    images: [
+      { src: "/projects/wordwars/menu.jpg", alt: "WordWars main menu with the game modes" },
+      { src: "/projects/wordwars/setup.jpg", alt: "Solo practice mode setup screen" },
+      { src: "/projects/wordwars/gameplay.jpg", alt: "A match in progress with the PRE prefix active" },
+    ],
+  },
+];
 
 export const navKeys = ["about", "experience", "project", "contact"] as const;
 
