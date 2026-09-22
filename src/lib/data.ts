@@ -64,7 +64,7 @@ export const experience: ExperienceEntry[] = [
     id: "nttData",
     role: "Center Developer",
     company: "NTT DATA Europe & Latam",
-    stack: ["PHP", "Symfony", "AngularJS"],
+    stack: ["PHP", "Symfony", "Angular"],
   },
   {
     id: "anaimo",
@@ -76,7 +76,7 @@ export const experience: ExperienceEntry[] = [
     id: "arenaStack",
     role: "CIO & Full Stack Developer",
     company: "Arena Stack",
-    stack: ["Node.js", "Elixir", "Phoenix", "AngularJS"],
+    stack: ["Node.js", "Elixir", "Phoenix", "Angular"],
   },
 ];
 
