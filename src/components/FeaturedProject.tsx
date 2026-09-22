@@ -14,6 +14,9 @@ export async function FeaturedProject() {
         <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
           <div>
             <ScrollReveal className="flex flex-col gap-2" stagger={0.08} y={16}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide text-signal-ink">
+                {t("label")}
+              </p>
               <h2 className="font-display text-3xl font-bold tracking-tight text-paper md:text-4xl">
                 {project.name}
               </h2>

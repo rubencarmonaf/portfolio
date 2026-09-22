@@ -65,6 +65,7 @@
     }
   },
   "project": {
+    "label": "Proyecto",
     "tagline": "Juego de palabras multijugador en tiempo real, con ranking ELO",
     "description": "Juego de palabras online por turnos: cada partida impone un prefijo y los jugadores compiten por encadenar palabras válidas antes de que se acabe el tiempo. Incluye modo versus en tiempo real, reto diario, práctica en solitario y salas privadas por enlace.",
     "bullets": [

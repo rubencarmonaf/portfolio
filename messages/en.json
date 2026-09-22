@@ -65,6 +65,7 @@
     }
   },
   "project": {
+    "label": "Project",
     "tagline": "Real-time multiplayer word game with an ELO ranking",
     "description": "Turn-based online word game: each match sets a prefix and players race to chain valid words before time runs out. Includes a real-time versus mode, a daily challenge, solo practice and private link-based lobbies.",
     "bullets": [
