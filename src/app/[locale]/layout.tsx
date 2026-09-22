@@ -31,7 +31,7 @@ export async function generateMetadata(props: LayoutProps<"/[locale]">): Promise
   return {
     title: t("title"),
     description: t("description"),
-    metadataBase: new URL("https://rubencarmonaf.dev"),
+    metadataBase: new URL("https://rubencarmonaf.vercel.app"),
     openGraph: {
       title: t("title"),
       description: t("description"),
