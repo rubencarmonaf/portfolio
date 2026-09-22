@@ -21,6 +21,12 @@
      overrides this to a deeper shade while buttons keep --color-signal. */
   --color-signal-ink: var(--color-signal);
 
+  /* Hero background intensity: dark backgrounds show a faint accent wash
+     easily, light backgrounds need a stronger dose of the same treatment
+     to stay visible against near-white. */
+  --hero-glow-opacity: 0.12;
+  --hero-grid-opacity: 0.18;
+
   --font-display: var(--font-jetbrains-mono);
   --font-body: var(--font-space-grotesk);
 }
@@ -41,6 +47,9 @@
   --color-signal-soft: #e2793f1f;
   --color-signal-dim: #b85f2f;
   --color-signal-ink: #a8541f;
+
+  --hero-glow-opacity: 0.28;
+  --hero-grid-opacity: 0.4;
 }
 
 @theme inline {
@@ -91,7 +100,7 @@ body {
 }
 
 .hero-grid {
-  opacity: 0.16;
+  opacity: var(--hero-grid-opacity);
 }
 
 @media (prefers-reduced-motion: no-preference) {
