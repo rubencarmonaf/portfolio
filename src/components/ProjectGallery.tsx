@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 
-type GalleryImage = { src: string; alt: string };
+type GalleryImage = { src: string; alt: string; width: number; height: number };
 
 const ROTATIONS = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
 
@@ -74,9 +74,9 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
           <Image
             src={image.src}
             alt={image.alt}
-            width={1568}
-            height={778}
-            className="aspect-[1568/778] w-full object-cover"
+            width={image.width}
+            height={image.height}
+            className="h-auto w-full"
             sizes="(min-width: 1024px) 440px, 100vw"
           />
         </div>

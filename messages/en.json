@@ -69,6 +69,15 @@
     "openCta": "View live",
     "codeCta": "Code",
     "items": {
+      "uplift": {
+        "tagline": "AI-assisted conversion optimization, with A/B testing",
+        "description": "A tool for improving a website's copy: pick headlines, CTAs and benefits from the live page, let the AI generate on-brand variants, preview them on the page itself and run an A/B experiment to keep the one that converts best.",
+        "bullets": [
+          "Variant generation with the Claude API and structured output validated with zod, plus a keyless demo mode to try it for free.",
+          "Deterministic rules on every variant (banned words, promises we can't make, length limits), whether it came from the AI or was written by hand.",
+          "pnpm monorepo with React 19 + Vite and NestJS + Drizzle + PostgreSQL; Playwright to read the pages, Docker Compose and CI on GitHub Actions."
+        ]
+      },
       "wordwars": {
         "tagline": "Real-time multiplayer word game with an ELO ranking",
         "description": "Turn-based online word game: each match sets a prefix and players race to chain valid words before time runs out. Includes a real-time versus mode, a daily challenge, solo practice and private link-based lobbies.",

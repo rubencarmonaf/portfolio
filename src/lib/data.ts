@@ -86,12 +86,25 @@ export type ProjectEntry = {
   stack: string[];
   liveHref: string;
   repoHref: string;
-  images: { src: string; alt: string }[];
+  // width/height must match the real file so the gallery never crops it.
+  images: { src: string; alt: string; width: number; height: number }[];
 };
 
 // Add future projects here; each needs a matching "items.<id>" block in
 // messages/es.json and messages/en.json under the "projects" namespace.
 export const projects: ProjectEntry[] = [
+  {
+    id: "uplift",
+    name: "Uplift",
+    stack: ["React 19", "NestJS", "PostgreSQL", "Drizzle", "Claude API", "Playwright", "TypeScript", "Docker"],
+    liveHref: "https://uplift-web.onrender.com/",
+    repoHref: "https://github.com/rubencarmonaf/Uplift",
+    images: [
+      { src: "/projects/uplift/results.jpg", alt: "Uplift A/B test results with the winning variant", width: 1568, height: 733 },
+      { src: "/projects/uplift/variants.jpg", alt: "AI-generated copy variants scored against brand rules", width: 1568, height: 733 },
+      { src: "/projects/uplift/projects.jpg", alt: "Uplift project list", width: 1568, height: 733 },
+    ],
+  },
   {
     id: "wordwars",
     name: "WordWars",
@@ -99,9 +112,9 @@ export const projects: ProjectEntry[] = [
     liveHref: "https://wordwars-ab0f.onrender.com/",
     repoHref: "https://github.com/rubencarmonaf/words-game",
     images: [
-      { src: "/projects/wordwars/menu.jpg", alt: "WordWars main menu with the game modes" },
-      { src: "/projects/wordwars/setup.jpg", alt: "Solo practice mode setup screen" },
-      { src: "/projects/wordwars/gameplay.jpg", alt: "A match in progress with the PRE prefix active" },
+      { src: "/projects/wordwars/menu.jpg", alt: "WordWars main menu with the game modes", width: 1568, height: 778 },
+      { src: "/projects/wordwars/setup.jpg", alt: "Solo practice mode setup screen", width: 1568, height: 778 },
+      { src: "/projects/wordwars/gameplay.jpg", alt: "A match in progress with the PRE prefix active", width: 1568, height: 778 },
     ],
   },
 ];

@@ -69,6 +69,15 @@
     "openCta": "Ver en vivo",
     "codeCta": "Código",
     "items": {
+      "uplift": {
+        "tagline": "Optimización de conversión asistida por IA, con tests A/B",
+        "description": "Herramienta para mejorar los textos de una web: seleccionas titulares, CTAs y beneficios de la página real, la IA genera variantes alineadas con la marca, las previsualizas sobre la propia página y lanzas un experimento A/B para quedarte con la que más convierte.",
+        "bullets": [
+          "Generación de variantes con la API de Claude y salida estructurada validada con zod, con un modo demo sin clave para probarla gratis.",
+          "Reglas deterministas sobre cada variante (palabras prohibidas, promesas que no se pueden hacer, límites de longitud), sea de la IA o manual.",
+          "Monorepo pnpm con React 19 + Vite y NestJS + Drizzle + PostgreSQL; Playwright para leer las páginas, Docker Compose y CI con GitHub Actions."
+        ]
+      },
       "wordwars": {
         "tagline": "Juego de palabras multijugador en tiempo real, con ranking ELO",
         "description": "Juego de palabras online por turnos: cada partida impone un prefijo y los jugadores compiten por encadenar palabras válidas antes de que se acabe el tiempo. Incluye modo versus en tiempo real, reto diario, práctica en solitario y salas privadas por enlace.",
