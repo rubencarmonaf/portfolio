@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { MagnifyingGlassPlus } from "@phosphor-icons/react/ssr";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
 import { Lightbox } from "@/components/Lightbox";
+import { preloadImage, preloadImageWithin } from "@/lib/preloadImage";
 
 type GalleryImage = { src: string; alt: string; width: number; height: number };
 
@@ -19,6 +20,31 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
 
   const getOrigin = useCallback((index: number) => thumbRefs.current[index] ?? null, []);
   const handleClose = useCallback(() => setOpenIndex(null), []);
+
+  // The lightbox shows the full-resolution original, a different file from
+  // the optimized thumbnail. Fetch the originals as the gallery nears the
+  // viewport so the open animation never runs over an empty frame.
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        images.forEach((image) => preloadImage(image.src));
+        observer.disconnect();
+      },
+      { rootMargin: "400px 0px" },
+    );
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, [images]);
+
+  const open = async (index: number) => {
+    // Normally already preloaded; if the network is slow, wait briefly so the
+    // grow-out animation shows the real image, but never block for long.
+    await preloadImageWithin(images[index].src, 700);
+    setOpenIndex(index);
+  };
 
   useEffect(() => {
     const root = ref.current;
@@ -82,7 +108,9 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
               thumbRefs.current[i] = el;
             }}
             type="button"
-            onClick={() => setOpenIndex(i)}
+            onClick={() => open(i)}
+            onPointerEnter={() => preloadImage(image.src)}
+            onFocus={() => preloadImage(image.src)}
             aria-label={`${t("open")}: ${image.alt}`}
             className={`gallery-card group relative block cursor-zoom-in overflow-hidden rounded-2xl border border-line shadow-xl shadow-black/20 transition-[border-color] hover:border-signal/50 focus-visible:border-signal focus-visible:outline-none ${ROTATIONS[i % ROTATIONS.length]}`}
             style={{ marginLeft: i % 2 === 0 ? 0 : "8%", marginRight: i % 2 === 0 ? "8%" : 0 }}

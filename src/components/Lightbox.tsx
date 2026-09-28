@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react/ssr";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { getLenis } from "@/lib/lenis";
+import { preloadImage } from "@/lib/preloadImage";
 
 type LightboxImage = { src: string; alt: string; width: number; height: number };
 
@@ -91,6 +92,17 @@ export function Lightbox({ images, index, onIndexChange, onClose, getOrigin, lab
     resetZoom(false);
     const reduce = prefersReducedMotion();
 
+    // Safety net for slow networks: the already-loaded thumbnail fills the
+    // frame until the full-resolution image arrives, so it's never empty.
+    const thumb = getOrigin(index)?.querySelector("img");
+    if (frame) frame.style.backgroundImage = thumb?.currentSrc ? `url("${thumb.currentSrc}")` : "";
+
+    // Make the arrows feel instant: fetch the neighbours ahead of time.
+    if (count > 1) {
+      preloadImage(images[(index + 1) % count].src);
+      preloadImage(images[(index - 1 + count) % count].src);
+    }
+
     if (previous === null) {
       dialog.showModal();
       getLenis()?.stop();
@@ -116,7 +128,7 @@ export function Lightbox({ images, index, onIndexChange, onClose, getOrigin, lab
         { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
       );
     }
-  }, [index, getOrigin, resetZoom]);
+  }, [index, getOrigin, resetZoom, images, count]);
 
   // If the gallery unmounts while open, don't leave the page scroll-locked.
   useEffect(() => releasePage, []);
@@ -266,7 +278,7 @@ export function Lightbox({ images, index, onIndexChange, onClose, getOrigin, lab
         <div className="pointer-events-none relative flex h-full w-full items-center justify-center px-4 pb-28 pt-20 sm:px-20 sm:pb-20">
           <div
             ref={frameRef}
-            className={`pointer-events-auto overflow-hidden rounded-2xl border border-line shadow-2xl shadow-black/40 ${
+            className={`pointer-events-auto overflow-hidden rounded-2xl border border-line bg-[length:100%_100%] bg-no-repeat shadow-2xl shadow-black/40 ${
               zoomed ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"
             }`}
             style={{ touchAction: "none" }}
