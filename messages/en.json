@@ -68,6 +68,15 @@
     "title": "Projects",
     "openCta": "View live",
     "codeCta": "Code",
+    "lightbox": {
+      "open": "Enlarge image",
+      "dialog": "Project image gallery",
+      "close": "Close",
+      "previous": "Previous image",
+      "next": "Next image",
+      "zoomHint": "Tap or click the image to zoom",
+      "panHint": "Drag to pan, tap to zoom out"
+    },
     "items": {
       "uplift": {
         "tagline": "AI-assisted conversion optimization, with A/B testing",

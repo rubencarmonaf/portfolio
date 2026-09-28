@@ -20,7 +20,7 @@ export async function Projects() {
       </div>
 
       <StickyProjectStack>
-        <div className={`mt-14 flex flex-col ${stacked ? "" : "gap-24"}`}>
+        <div className={`mt-14 flex flex-col gap-24 ${stacked ? "lg:gap-0" : ""}`}>
           {projects.map((item, index) => {
             const tagline = t(`items.${item.id}.tagline` as never);
             const description = t(`items.${item.id}.description` as never);
@@ -29,7 +29,7 @@ export async function Projects() {
             return (
               <div
                 key={item.id}
-                className={`project-card bg-ink ${stacked ? "flex min-h-[100dvh] items-center" : ""}`}
+                className={`project-card bg-ink ${stacked ? "lg:flex lg:min-h-[100dvh] lg:items-center" : ""}`}
                 style={stacked ? { zIndex: index + 1 } : undefined}
               >
                 <div className="mx-auto grid w-full max-w-5xl gap-14 px-6 lg:grid-cols-2 lg:items-center">

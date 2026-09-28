@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
+import { setLenis } from "@/lib/lenis";
 
 /**
  * Drives scroll through Lenis (inertia/smoothing) and feeds every frame into
@@ -14,6 +15,7 @@ export function LenisSetup() {
     if (prefersReducedMotion()) return;
 
     const lenis = new Lenis({ autoRaf: false });
+    setLenis(lenis);
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -25,6 +27,7 @@ export function LenisSetup() {
 
     return () => {
       gsap.ticker.remove(onTick);
+      setLenis(null);
       lenis.destroy();
     };
   }, []);

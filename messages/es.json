@@ -68,6 +68,15 @@
     "title": "Proyectos",
     "openCta": "Ver en vivo",
     "codeCta": "Código",
+    "lightbox": {
+      "open": "Ampliar imagen",
+      "dialog": "Galería de imágenes del proyecto",
+      "close": "Cerrar",
+      "previous": "Imagen anterior",
+      "next": "Imagen siguiente",
+      "zoomHint": "Pulsa la imagen para hacer zoom",
+      "panHint": "Arrastra para moverte, pulsa para salir del zoom"
+    },
     "items": {
       "uplift": {
         "tagline": "Optimización de conversión asistida por IA, con tests A/B",
