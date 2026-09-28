@@ -14,7 +14,7 @@ type LightboxProps = {
   index: number | null;
   onIndexChange: (index: number) => void;
   onClose: () => void;
-  /** Thumbnail the image grows out of on open and shrinks back into on close. */
+  /** Thumbnail for each image; its loaded src is the placeholder while the full image loads. */
   getOrigin: (index: number) => HTMLElement | null;
   labels: {
     dialog: string;
@@ -28,19 +28,6 @@ type LightboxProps = {
 
 const SWIPE_THRESHOLD = 50;
 const TAP_TOLERANCE = 6;
-
-/** Transform that makes `el` visually sit on top of `origin`'s box. */
-function flipFrom(el: HTMLElement, origin: HTMLElement) {
-  const from = origin.getBoundingClientRect();
-  const to = el.getBoundingClientRect();
-  return {
-    x: from.left - to.left,
-    y: from.top - to.top,
-    scaleX: from.width / to.width,
-    scaleY: from.height / to.height,
-    transformOrigin: "0 0",
-  };
-}
 
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
@@ -109,23 +96,20 @@ export function Lightbox({ images, index, onIndexChange, onClose, getOrigin, lab
       document.documentElement.style.overflow = "hidden";
       if (reduce || !frame) return;
 
+      // Appear in place with a short fade and settle. Growing out of the
+      // thumbnail looked like the image flew in from off-screen, since the
+      // thumbnails sit rotated at the side of the page.
       gsap.fromTo(backdropRef.current, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" });
-      const origin = getOrigin(index);
-      if (origin) {
-        gsap.fromTo(frame, flipFrom(frame, origin), {
-          x: 0,
-          y: 0,
-          scaleX: 1,
-          scaleY: 1,
-          duration: 0.55,
-          ease: "power3.out",
-        });
-      }
+      gsap.fromTo(
+        frame,
+        { opacity: 0, scale: 0.96 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+      );
     } else if (previous !== index && !reduce && frame) {
       gsap.fromTo(
         frame,
-        { x: directionRef.current * 60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
+        { x: directionRef.current * 16, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" },
       );
     }
   }, [index, getOrigin, resetZoom, images, count]);
@@ -153,15 +137,10 @@ export function Lightbox({ images, index, onIndexChange, onClose, getOrigin, lab
       return;
     }
 
-    const origin = getOrigin(index);
     const tl = gsap.timeline({ onComplete: finish });
-    tl.to(backdropRef.current, { opacity: 0, duration: 0.3, ease: "power2.in" }, 0);
-    if (origin) {
-      tl.to(frame, { ...flipFrom(frame, origin), duration: 0.4, ease: "power3.inOut" }, 0);
-    } else {
-      tl.to(frame, { opacity: 0, scale: 0.96, duration: 0.25 }, 0);
-    }
-  }, [index, getOrigin, onClose, resetZoom]);
+    tl.to(backdropRef.current, { opacity: 0, duration: 0.25, ease: "power2.in" }, 0);
+    tl.to(frame, { opacity: 0, scale: 0.96, duration: 0.2, ease: "power2.in" }, 0);
+  }, [index, onClose, resetZoom]);
 
   // overflow:hidden on <html> doesn't stop touch scrolling in iOS Safari, so
   // also swallow wheel/touch-move on the dialog itself. Needs a non-passive
